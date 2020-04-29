@@ -25,16 +25,36 @@ class AddTopic extends Component {
         
     }
 
+    invalidEntry = () => {
+        this.setState({
+            topic: null,
+            isNew: false
+        });
+        console.log('invalid brah');
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
-        this.state.isNew ? this.props.addTopic(this.state.topic) : null
+        if(this.state.isNew) {
+            this.props.addTopic(this.state.topic);
+            this.setState({
+                topic: null,
+                isNew: false
+            });
+            document.getElementById('topic').value = "";
+        }
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="">new topic</label>
-                <input type="text" name="topic" id="topic" onChange={this.handleChange} />
+                <input 
+                    type="text"
+                    name="topic"
+                    id="topic"
+                    autoComplete="off"
+                    onChange={this.handleChange} />
                 <button type="submit">add</button>
             </form>
         )

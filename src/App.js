@@ -13,7 +13,21 @@ class App extends Component {
 	}
 
 	addTopic = (topic) => {
-		console.log(topic);
+		let newTopics = [...this.state.topics, topic];
+
+		this.setState({
+			topics: newTopics
+		});
+	}
+
+	removeTopic = (topicToRemove) => {
+		let newTopics = this.state.topics.filter(topic => {
+			return topic !== topicToRemove
+		})
+
+		this.setState({
+			topics: newTopics
+		});
 	}
 
 	render() {
@@ -24,7 +38,7 @@ class App extends Component {
 					<h1 className="page-heading">Topics list</h1>
 				</header>
 				<div className="topics-list">
-					<TopicsList list={this.state.topics} />
+					<TopicsList list={this.state.topics} removeTopic={this.removeTopic} />
 				</div>
 				<div className="add-topic">
 					<h2>Hello</h2>

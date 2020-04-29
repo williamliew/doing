@@ -1,9 +1,12 @@
 import React from 'react';
 
-const TopicsList  = ({list}) => {
+const TopicsList  = ({list, removeTopic}) => {
         const showList = list.map(item => {
             return (
-                <li key={item}>{item}</li>
+                <li key={item}>
+                    <button title={"Remove " + item} onClick={() => {removeTopic(item)}}>
+                        <span className="visuallyhidden">Remove </span>{item}</button>
+                </li>
             );
         });
 

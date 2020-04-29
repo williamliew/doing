@@ -32,17 +32,21 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="page-heading">Topics list</h1>
+			<div className="app">
+				<header className="app-header">
+					<img src={logo} className="app-logo" alt="logo" />
 				</header>
-				<div className="topics-list">
-					<TopicsList list={this.state.topics} removeTopic={this.removeTopic} />
-				</div>
-				<div className="add-topic">
-					<h2>Hello</h2>
-					<AddTopic addTopic={this.addTopic} currentTopics={this.state.topics} />
+				<div className="app-body">
+					<div className="topics-list">
+						<h1 className="page-heading">Topics list</h1>
+						<TopicsList list={this.state.topics} removeTopic={this.removeTopic} />
+
+						<div className="add-topic">
+							<h2>Hello</h2>
+							<AddTopic addTopic={this.addTopic} currentTopics={this.state.topics} />
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		);

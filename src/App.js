@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TopicsList from './modules/TopicsList';
+import AddTopic from './modules/AddTopic';
 
 
 class App extends Component {
@@ -9,6 +10,10 @@ class App extends Component {
 		topics: [
 			'Family', 'Friends', 'Career'
 		]
+	}
+
+	addTopic = (topic) => {
+		console.log(topic);
 	}
 
 	render() {
@@ -20,6 +25,10 @@ class App extends Component {
 				</header>
 				<div className="topics-list">
 					<TopicsList list={this.state.topics} />
+				</div>
+				<div className="add-topic">
+					<h2>Hello</h2>
+					<AddTopic addTopic={this.addTopic} currentTopics={this.state.topics} />
 				</div>
 			</div>
 		);

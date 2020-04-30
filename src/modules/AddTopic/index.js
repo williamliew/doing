@@ -47,16 +47,18 @@ class AddTopic extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="">new topic</label>
-                <input 
-                    type="text"
-                    name="topic"
-                    id="topic"
-                    autoComplete="off"
-                    onChange={this.handleChange} />
-                <button type="submit">add</button>
-            </form>
+            <div className="add-topic">
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor="">new topic</label>
+                    <input 
+                        type="text"
+                        name="topic"
+                        id="topic"
+                        autoComplete="off"
+                        onChange={this.handleChange} />
+                    <button type="submit">add</button>
+                </form>
+            </div>
         )
     }
 }

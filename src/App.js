@@ -30,6 +30,15 @@ class App extends Component {
 		});
 	}
 
+	componentDidMount() {
+		console.log('Component mounted');
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		console.log('Component updated');
+		console.log(prevProps, prevState);
+	}
+
 	render() {
 		return (
 			<div className="app">
@@ -41,10 +50,7 @@ class App extends Component {
 						<h1 className="page-heading">Topics list</h1>
 						<TopicsList list={this.state.topics} removeTopic={this.removeTopic} />
 
-						<div className="add-topic">
-							<h2>Hello</h2>
-							<AddTopic addTopic={this.addTopic} currentTopics={this.state.topics} />
-						</div>
+						<AddTopic addTopic={this.addTopic} currentTopics={this.state.topics} />
 					</div>
 					
 				</div>
